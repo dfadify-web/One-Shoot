@@ -4,5 +4,6 @@ package-lock.json
 Thumbs.db
 desktop.ini
 *.png
+!docs/**/*.jpg
 !docs/**/*.png
 lh*.json

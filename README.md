@@ -15,6 +15,28 @@ Sin inventar datos: horarios, reseñas o precios que no estén en el brief se om
 
 ---
 
+## Ejemplo real
+
+**🍔 Mès Que Bo — hamburguesería take-away → [mesquebo-web.vercel.app](https://mesquebo-web.vercel.app/)**
+
+Hecha con esta skill a partir de un brief en Markdown, 3 fotos, un vídeo y una paleta de 5 colores. Lighthouse móvil: rendimiento ~90, accesibilidad / buenas prácticas / SEO 100, CLS 0.
+
+![Hero en escritorio: titular con palabra rotatoria, vídeo en marco inclinado y sello giratorio](docs/desktop-hero.jpg)
+
+| Sobre nosotros | Carta con pestañas y buscador |
+|---|---|
+| ![Sección sobre nosotros con contador y fotos con inclinación 3D](docs/desktop-about.jpg) | ![Carta con pestañas, precios con línea de puntos y buscador](docs/desktop-carta.jpg) |
+
+<p align="center">
+  <img src="docs/mobile-hero.jpg" width="280" alt="Hero en móvil" />
+  &nbsp;&nbsp;
+  <img src="docs/mobile-carta.jpg" width="280" alt="Carta en móvil con pestaña Pizzas y precios por tamaño" />
+</p>
+
+Componentes de React Bits usados: RotatingText, CircularText, ScrollVelocity, CurvedLoop, CountUp, TiltedCard, SpotlightCard, Magnet, ClickSpark, StarBorder.
+
+---
+
 ## Instalación
 
 ### Opción A — Plugin de Claude Code (recomendada)
