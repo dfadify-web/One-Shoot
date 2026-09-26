@@ -27,11 +27,6 @@ Hecha con esta skill a partir de un brief en Markdown, 3 fotos, un vídeo y una 
 |---|---|
 | ![Sección sobre nosotros con contador y fotos con inclinación 3D](docs/desktop-about.jpg) | ![Carta con pestañas, precios con línea de puntos y buscador](docs/desktop-carta.jpg) |
 
-<p align="center">
-  <img src="docs/mobile-hero.jpg" width="280" alt="Hero en móvil" />
-  &nbsp;&nbsp;
-  <img src="docs/mobile-carta.jpg" width="280" alt="Carta en móvil con pestaña Pizzas y precios por tamaño" />
-</p>
 
 Componentes de React Bits usados: RotatingText, CircularText, ScrollVelocity, CurvedLoop, CountUp, TiltedCard, SpotlightCard, Magnet, ClickSpark, StarBorder.
 
