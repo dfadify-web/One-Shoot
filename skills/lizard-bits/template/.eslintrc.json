@@ -1,0 +1,12 @@
+{
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": ["components/bits/**"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "react-hooks/exhaustive-deps": "off"
+      }
+    }
+  ]
+}

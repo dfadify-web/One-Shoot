@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --header-h: 64px;
+}
+@media (min-width: 640px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 64px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip;
+  background: #0a0a0a;
+  color: #ffe8d6;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: #ffb79a;
+  color: #0a0a0a;
+}
+
+:focus-visible {
+  outline: 2px solid #ffb79a;
+  outline-offset: 3px;
+}
+
+/* Franjas diagonales tipo rótulo de bar */
+.stripes {
+  background-image: repeating-linear-gradient(-45deg, #ffb79a 0 14px, #0a0a0a 14px 28px);
+}
+.stripes-thin {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 183, 154, 0.08) 0 2px, transparent 2px 14px);
+}
+
+/* Botones: feedback de pulsación */
+.press {
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+  touch-action: manipulation;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* Línea de puntos entre nombre y precio, como en una carta */
+.leader {
+  flex: 1;
+  border-bottom: 2px dotted rgba(255, 183, 154, 0.25);
+  transform: translateY(-5px);
+  min-width: 12px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Entrada del hero en CSS: se pinta sin esperar a que cargue el JS */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+/* Sin opacity: el póster del vídeo es el LCP y debe contar como pintado desde el primer frame */
+@keyframes enter-tilt {
+  from {
+    transform: translateY(28px) rotate(0deg) scale(0.97);
+  }
+}
+.enter {
+  animation: enter 700ms var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+.enter-tilt {
+  animation: enter-tilt 900ms var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Reveal al hacer scroll: solo se oculta si hay JS (clase .js en <html>) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal[data-in] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .enter {
+    animation-name: fade;
+  }
+  .enter-tilt {
+    animation: none;
+  }
+  .js .reveal {
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
