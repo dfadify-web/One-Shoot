@@ -1,20 +1,20 @@
-# Instalación manual de la skill lizard-bits en Windows (PowerShell 5.1+).
+# Instalación manual de la skill One-Shoot (/oneshot) en Windows (PowerShell 5.1+).
 # Uso:  irm https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.ps1 | iex
 #   o, desde un clon del repo:  .\install.ps1
 $ErrorActionPreference = "Stop"
 
 $Repo = "https://github.com/dfadify-web/lizard-bits.git"
 $SkillsDir = if ($env:CLAUDE_SKILLS_DIR) { $env:CLAUDE_SKILLS_DIR } else { Join-Path $HOME ".claude\skills" }
-$Dest = Join-Path $SkillsDir "lizard-bits"
+$Dest = Join-Path $SkillsDir "oneshot"
 
 $Src = $null
-if ($PSScriptRoot -and (Test-Path (Join-Path $PSScriptRoot "skills\lizard-bits\SKILL.md"))) {
-  $Src = Join-Path $PSScriptRoot "skills\lizard-bits"
+if ($PSScriptRoot -and (Test-Path (Join-Path $PSScriptRoot "skills\oneshot\SKILL.md"))) {
+  $Src = Join-Path $PSScriptRoot "skills\oneshot"
 } else {
   if (-not (Get-Command git -ErrorAction SilentlyContinue)) { throw "Necesitas git instalado." }
-  $Tmp = Join-Path ([IO.Path]::GetTempPath()) ("lizard-bits-" + [guid]::NewGuid())
+  $Tmp = Join-Path ([IO.Path]::GetTempPath()) ("oneshot-" + [guid]::NewGuid())
   git clone --depth 1 $Repo $Tmp | Out-Null
-  $Src = Join-Path $Tmp "skills\lizard-bits"
+  $Src = Join-Path $Tmp "skills\oneshot"
 }
 
 New-Item -ItemType Directory -Force $SkillsDir | Out-Null
@@ -32,5 +32,10 @@ if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
 }
 if ($Tmp -and (Test-Path $Tmp)) { Remove-Item -Recurse -Force $Tmp }
 
-Write-Host "OK lizard-bits instalada en $Dest"
-Write-Host "   Reinicia Claude Code y usa /lizard-bits."
+# Precarga React Bits (clon parcial ~14 MB) para que el primer /oneshot vaya directo
+if (Get-Command node -ErrorAction SilentlyContinue) {
+  try { node (Join-Path $Dest "scripts\bits.mjs") sync } catch { Write-Host "i React Bits se descargara en el primer uso." }
+}
+
+Write-Host "OK One-Shoot instalada en $Dest"
+Write-Host "   Reinicia Claude Code y usa /oneshot."

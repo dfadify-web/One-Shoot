@@ -1,7 +1,7 @@
 {
-  "name": "lizard-bits",
-  "version": "1.0.0",
-  "description": "Skill para Claude Code: crea landings premium y rápidas para negocios locales con Next.js 14, Tailwind, motion, componentes de React Bits y la filosofía de animación de Emil Kowalski. Le pasas PRD + assets + paleta y entrega la web optimizada para móvil y desplegada en Vercel.",
+  "name": "oneshot",
+  "version": "2.0.0",
+  "description": "One-Shoot: skill para Claude Code que crea desde el primer prompt landings increíbles para negocios locales con Next.js 14, Tailwind, motion, cualquiera de los 211+ componentes de React Bits (elegidos para cada marca) y la filosofía de animación de Emil Kowalski. PRD + assets + paleta → web con dirección de arte propia, optimizada para móvil y desplegada en Vercel.",
   "author": {
     "name": "dfadify-web",
     "url": "https://github.com/dfadify-web"
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/dfadify-web/lizard-bits",
   "repository": "https://github.com/dfadify-web/lizard-bits",
   "license": "MIT",
-  "keywords": ["landing", "web-design", "react-bits", "emil-kowalski", "nextjs", "tailwind", "motion", "animation", "vercel", "local-business"]
+  "keywords": ["landing", "web-design", "one-shot", "react-bits", "emil-kowalski", "nextjs", "tailwind", "motion", "animation", "vercel", "local-business"]
 }

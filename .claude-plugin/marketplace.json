@@ -1,16 +1,16 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "lizard-bits",
-  "description": "Landings para negocios con React Bits + Emil Kowalski, optimizadas para móvil y desplegadas en Vercel.",
+  "name": "oneshot",
+  "description": "One-Shoot: landings increíbles para negocios desde el primer prompt, con React Bits + Emil Kowalski, optimizadas para móvil y desplegadas en Vercel.",
   "owner": {
     "name": "dfadify-web",
     "url": "https://github.com/dfadify-web"
   },
   "plugins": [
     {
-      "name": "lizard-bits",
+      "name": "oneshot",
       "source": "./",
-      "description": "Crea landings premium para negocios locales a partir de PRD + assets + paleta: Next.js 14, Tailwind, motion, React Bits, animación estilo Emil Kowalski, chequeo móvil real y deploy en Vercel.",
+      "description": "Crea desde el primer prompt una landing con dirección de arte propia para cada negocio: Next.js 14, Tailwind, motion, los componentes de React Bits que mejor encajan, animación estilo Emil Kowalski, chequeo móvil real y deploy en Vercel.",
       "author": {
         "name": "dfadify-web",
         "url": "https://github.com/dfadify-web"
@@ -18,7 +18,7 @@
       "homepage": "https://github.com/dfadify-web/lizard-bits",
       "license": "MIT",
       "category": "development",
-      "keywords": ["landing", "web-design", "react-bits", "emil-kowalski", "nextjs", "tailwind", "vercel"]
+      "keywords": ["landing", "web-design", "one-shot", "react-bits", "emil-kowalski", "nextjs", "tailwind", "vercel"]
     }
   ]
 }

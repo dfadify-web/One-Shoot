@@ -34,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         {/* Marca que hay JS antes de pintar: así los reveal no parpadean y sin JS todo se ve */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {/* Precarga del LCP: solo si el hero tiene póster/imagen; cambia la ruta o borra esta línea */}
         <link rel="preload" as="image" href="/media/poster.webp" fetchPriority="high" />
       </head>
       <body className={`${display.variable} ${body.variable} ${hand.variable} font-sans antialiased`}>{children}</body>

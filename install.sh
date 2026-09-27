@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
-# Instalación manual de la skill lizard-bits (macOS / Linux / Git Bash en Windows).
+# Instalación manual de la skill One-Shoot (/oneshot) (macOS / Linux / Git Bash en Windows).
 # Uso:  curl -fsSL https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.sh | bash
 #   o, desde un clon del repo:  ./install.sh
 set -euo pipefail
 
 REPO="https://github.com/dfadify-web/lizard-bits.git"
-DEST="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}/lizard-bits"
+DEST="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}/oneshot"
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || true)"
-if [ -n "$here" ] && [ -f "$here/skills/lizard-bits/SKILL.md" ]; then
-  src="$here/skills/lizard-bits"
+if [ -n "$here" ] && [ -f "$here/skills/oneshot/SKILL.md" ]; then
+  src="$here/skills/oneshot"
 else
   tmp="$(mktemp -d)"
   trap 'rm -rf "$tmp"' EXIT
-  git clone --depth 1 "$REPO" "$tmp/lizard-bits" >/dev/null
-  src="$tmp/lizard-bits/skills/lizard-bits"
+  git clone --depth 1 "$REPO" "$tmp/repo" >/dev/null
+  src="$tmp/repo/skills/oneshot"
 fi
 
 mkdir -p "$(dirname "$DEST")"
@@ -30,5 +30,10 @@ fi
 
 command -v ffmpeg >/dev/null 2>&1 || echo "ℹ ffmpeg no encontrado: solo hace falta si vas a optimizar vídeos."
 
-echo "✓ lizard-bits instalada en $DEST"
-echo "  Reinicia Claude Code y usa /lizard-bits (o pide: \"crea una landing para mi negocio con estos assets y esta paleta\")."
+# Precarga React Bits (clon parcial ~14 MB) para que el primer /oneshot vaya directo
+if command -v node >/dev/null 2>&1; then
+  node "$DEST/scripts/bits.mjs" sync || echo "ℹ React Bits se descargará en el primer uso."
+fi
+
+echo "✓ One-Shoot instalada en $DEST"
+echo "  Reinicia Claude Code y usa /oneshot (o pide: \"crea una landing para mi negocio con estos assets y esta paleta\")."

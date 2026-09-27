@@ -1,23 +1,29 @@
-# 🦎 lizard-bits
+# 🎯 One-Shoot
 
-**Skill para [Claude Code](https://claude.com/claude-code) que crea landings premium y rápidas para negocios locales** (restaurantes, tiendas, peluquerías, talleres…).
+**Skill para [Claude Code](https://claude.com/claude-code) que crea, desde el primer prompt, landings increíbles para negocios** (restaurantes, tiendas, clínicas, talleres, servicios…). Se invoca con **`/oneshot`**.
 
 Le pasas un **PRD/brief**, **unos pocos assets** (fotos, logo, quizá un vídeo) y una **paleta de colores**, y Claude:
 
-1. Monta un proyecto **Next.js 14 + Tailwind + motion**.
-2. Usa muchos componentes de **[React Bits](https://github.com/DavidHDev/react-bits)** (ya parcheados para móvil).
-3. Anima siguiendo la filosofía de **[Emil Kowalski](https://github.com/emilkowalski/skills)** (curvas, duraciones, `:active`, stagger, reduced-motion…).
-4. Optimiza los assets (WebP, vídeo mp4+webm con póster) **sin recortar tus fotos**.
-5. Verifica en **iPhone emulado** (desbordes, capturas, FPS de scroll, errores de consola).
-6. Despliega en **Vercel** y pasa **Lighthouse** móvil (objetivo: 90+, CLS 0).
+1. Elige una **dirección de arte propia para ese negocio** (12 direcciones: rótulo de barrio, editorial, artesanal, lujo sobrio, neón nocturno, suizo técnico, brutalista, retro 70s, minimal cálido, pop, inmersivo 3D, mediterráneo) y una composición de hero distinta a la de la web anterior.
+2. Explora **los 211+ componentes de [React Bits](https://github.com/DavidHDev/react-bits)** y escoge los 8-14 que mejor cuentan esa marca, con un presupuesto de rendimiento (máx. 1 WebGL, máx. 2 bucles a la vez).
+3. Monta **Next.js 14 + Tailwind + motion** sobre una base técnica probada en producción.
+4. Anima siguiendo la filosofía de **[Emil Kowalski](https://github.com/emilkowalski/skills)** (curvas, duraciones, `:active`, stagger, reduced-motion…).
+5. Optimiza los assets (WebP, vídeo mp4+webm con póster) **sin recortar tus fotos**.
+6. Verifica en **iPhone emulado** (desbordes, capturas, FPS de scroll, errores) y pasa un **control de calidad de director de arte**.
+7. Despliega en **Vercel** y pasa **Lighthouse** móvil (objetivo: 90+, CLS 0).
 
 Sin inventar datos: horarios, reseñas o precios que no estén en el brief se omiten y se te listan como pendientes.
+
+### Por qué no salen todas iguales
+- **Historial** (`~/.oneshot/history.json`): cada web registra su dirección y componentes; la siguiente debe usar otra dirección y al menos la mitad de componentes distintos.
+- **Brief de diseño obligatorio** antes de escribir código: dirección, momento firma, composición del hero, tipografías, solución por sección y componentes con su *papel* y su *porqué*.
+- **Todo el catálogo accesible** con `scripts/bits.mjs` (buscar, ver props y uso oficial, añadir con dependencias compatibles), no un set fijo de favoritos.
 
 ---
 
 ## Ejemplos reales
 
-Dos negocios muy distintos, misma skill: cambian la paleta, la tipografía y las secciones, pero se mantienen el enfoque (rótulo de barrio en vez de plantilla SaaS), las micro-animaciones y el rendimiento en móvil.
+Dos negocios hechos con la primera versión de la skill. Tienen personalidad y rendimiento, pero comparten fórmula (palabra rotatoria + sello giratorio + franja inclinada en el hero): justo lo que la v2 evita con direcciones de arte e historial.
 
 ### 🍔 Mès Que Bo — hamburguesería take-away
 **→ [mesquebo-web.vercel.app](https://mesquebo-web.vercel.app/)**
@@ -47,15 +53,9 @@ Negocio de servicios, sin fotos de producto: el hero es una ilustración de la n
 
 ## Instalación
 
-### Opción A — Plugin de Claude Code (recomendada)
-Dentro de Claude Code:
-```
-/plugin marketplace add dfadify-web/lizard-bits
-/plugin install lizard-bits@lizard-bits
-```
-Las dependencias de los scripts (`puppeteer-core`, `sharp`) las instala la propia skill la primera vez que la usas.
+### Opción A — Script (recomendada: queda como `/oneshot`)
+Copia la skill a `~/.claude/skills/oneshot`, instala las dependencias de los scripts y precarga React Bits.
 
-### Opción B — Script (copia a `~/.claude/skills/lizard-bits`)
 **macOS / Linux / Git Bash**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.sh | bash
@@ -65,17 +65,26 @@ curl -fsSL https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/instal
 irm https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.ps1 | iex
 ```
 
+### Opción B — Plugin de Claude Code
+Dentro de Claude Code:
+```
+/plugin marketplace add dfadify-web/lizard-bits
+/plugin install oneshot@oneshot
+```
+Como plugin, Claude Code puede mostrar el comando con el prefijo del plugin; también se activa sola cuando pides una web para un negocio. Las dependencias de los scripts las instala la propia skill la primera vez.
+
 ### Opción C — Manual
 ```bash
 git clone https://github.com/dfadify-web/lizard-bits.git
-cp -R lizard-bits/skills/lizard-bits ~/.claude/skills/
-npm install --prefix ~/.claude/skills/lizard-bits/scripts
+cp -R lizard-bits/skills/oneshot ~/.claude/skills/
+npm install --prefix ~/.claude/skills/oneshot/scripts
+node ~/.claude/skills/oneshot/scripts/bits.mjs sync
 ```
 
 Reinicia Claude Code tras instalar.
 
 ### Requisitos
-- **Node.js 18+** y npm
+- **Node.js 18+**, npm y **git**
 - **Google Chrome** (o Chromium/Edge) instalado — los scripts lo usan vía `puppeteer-core`, no descargan navegador. Si no lo detecta: `export CHROME_PATH=/ruta/a/chrome`.
 - **ffmpeg** (solo si hay vídeo): `brew install ffmpeg` · `winget install Gyan.FFmpeg` · `sudo apt install ffmpeg`
 - Cuenta de **Vercel** para el deploy (`npx vercel login`)
@@ -85,7 +94,7 @@ Reinicia Claude Code tras instalar.
 ## Uso
 
 ```
-/lizard-bits
+/oneshot
 ```
 o simplemente:
 
@@ -97,25 +106,39 @@ Qué conviene pasarle:
 | Brief / PRD | nombre, contacto (WhatsApp, IG, dirección), secciones, carta o servicios con precios |
 | Assets | 2-6 fotos de producto, logo, opcional un vídeo corto vertical |
 | Paleta | hex o una imagen con los colores + cuál es el principal |
+| (Opcional) Tono | "quiero algo editorial", "más canalla", "tipo revista"… para orientar la dirección de arte |
+
+### Explorar React Bits a mano
+El mismo script que usa la skill sirve para curiosear el catálogo:
+```bash
+B=~/.claude/skills/oneshot/scripts/bits.mjs
+node $B list --q "text reveal"          # buscar por descripción/etiquetas
+node $B list --cat Backgrounds --cost light
+node $B info SplitFlapText Stack        # props, uso oficial, dependencias y avisos de rendimiento
+node $B add Stack --project ./mi-web --install
+node $B history                         # webs anteriores (dirección + componentes)
+```
 
 ---
 
 ## Qué incluye
 
 ```
-skills/lizard-bits/
-├── SKILL.md                      # flujo completo + reglas + errores ya cometidos
+skills/oneshot/
+├── SKILL.md                      # flujo completo: brief de diseño → build → QA → deploy + errores ya cometidos
 ├── references/
 │   ├── emil-design-eng.md        # filosofía de animación de Emil Kowalski (MIT)
-│   └── react-bits-catalog.md     # 209 componentes: para qué sirven, coste en móvil, cuáles evitar
-├── template/                     # base probada en producción
+│   ├── art-directions.md         # 12 direcciones de arte, 12 composiciones de hero, alternativas por sección
+│   ├── react-bits-notes.md       # elegir por papel, presupuesto de rendimiento, integración, parches, lista negra
+│   └── react-bits-catalog.md     # catálogo completo generado: descripción, deps, coste 🟢🟡🔴, avisos
+├── template/                     # base técnica probada en producción
 │   ├── tailwind.config.ts, next.config.mjs, .eslintrc.json
-│   ├── app/globals.css, app/layout.example.tsx
-│   ├── components/bits/*         # React Bits parcheados (pausa fuera de pantalla, táctil, CLS…)
-│   ├── components/Reveal.tsx, useInViewPause.ts, icons.tsx
-│   ├── components/Hero.example.tsx, Menu.example.tsx
-│   └── lib/site.example.ts, menu.example.ts
+│   ├── app/globals.css           # entradas CSS antes de hidratar, reveal, :active, reduced-motion
+│   ├── components/Reveal.tsx, useInViewPause.ts
+│   ├── components/bits/*         # React Bits parcheados (bits.mjs los usa automáticamente)
+│   └── *.example.tsx / lib/*.example.ts   # referencia de técnica, no de maqueta
 └── scripts/
+    ├── bits.mjs                  # acceso a TODO React Bits: sync, list, info, add, catalog, history, log
     ├── optimize-media.mjs        # assets → webp/mp4/webm/póster, sin recortar; imprime ratio y color de fondo
     └── mobile-check.mjs          # iPhone emulado: desbordes, capturas, FPS, errores
 ```
@@ -127,12 +150,14 @@ skills/lizard-bits/
 - Animar la opacidad del póster del vídeo retrasa el LCP ~600 ms → solo transform.
 - Palabra rotatoria que empuja el texto (CLS) → ancho fijo con sizer invisible.
 - Al cambiar una imagen con el mismo nombre, la caché muestra la vieja → versionar (`-v2`).
+- `@react-three/fiber` 9 no funciona con React 18 (Next 14) → `bits.mjs add` fija versiones compatibles.
+- Clonar React Bits entero son 263 MB (vídeos de la web de demos) → clon parcial de 14 MB.
 
 ---
 
 ## Créditos y licencias
 - Código propio de este repo: **MIT** (ver `LICENSE`).
 - `references/emil-design-eng.md`: © Emil Kowalski, **MIT** — [emilkowalski/skills](https://github.com/emilkowalski/skills).
-- `template/components/bits/*`: basados en **React Bits** © David Haz, **MIT + Commons Clause** — [DavidHDev/react-bits](https://github.com/DavidHDev/react-bits). Puedes usarlos en webs (también de clientes); no puedes vender los componentes en sí. Ver `THIRD_PARTY_NOTICES.md`.
+- `template/components/bits/*` y los componentes que `bits.mjs` descarga: **React Bits** © David Haz, **MIT + Commons Clause** — [DavidHDev/react-bits](https://github.com/DavidHDev/react-bits). Puedes usarlos en webs (también de clientes); no puedes vender los componentes en sí. `references/react-bits-catalog.md` incluye las descripciones del catálogo oficial. Ver `THIRD_PARTY_NOTICES.md`.
 
 Proyecto no afiliado a Anthropic, Emil Kowalski ni React Bits.
