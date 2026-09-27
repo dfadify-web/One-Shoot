@@ -1,9 +1,9 @@
 # Instalación manual de la skill One-Shoot (/oneshot) en Windows (PowerShell 5.1+).
-# Uso:  irm https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.ps1 | iex
+# Uso:  irm https://raw.githubusercontent.com/dfadify-web/One-Shoot/main/install.ps1 | iex
 #   o, desde un clon del repo:  .\install.ps1
 $ErrorActionPreference = "Stop"
 
-$Repo = "https://github.com/dfadify-web/lizard-bits.git"
+$Repo = "https://github.com/dfadify-web/One-Shoot.git"
 $SkillsDir = if ($env:CLAUDE_SKILLS_DIR) { $env:CLAUDE_SKILLS_DIR } else { Join-Path $HOME ".claude\skills" }
 $Dest = Join-Path $SkillsDir "oneshot"
 

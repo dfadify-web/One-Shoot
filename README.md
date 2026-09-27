@@ -58,25 +58,25 @@ Copia la skill a `~/.claude/skills/oneshot`, instala las dependencias de los scr
 
 **macOS / Linux / Git Bash**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dfadify-web/One-Shoot/main/install.sh | bash
 ```
 **Windows (PowerShell)**
 ```powershell
-irm https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/dfadify-web/One-Shoot/main/install.ps1 | iex
 ```
 
 ### Opción B — Plugin de Claude Code
 Dentro de Claude Code:
 ```
-/plugin marketplace add dfadify-web/lizard-bits
+/plugin marketplace add dfadify-web/One-Shoot
 /plugin install oneshot@oneshot
 ```
 Como plugin, Claude Code puede mostrar el comando con el prefijo del plugin; también se activa sola cuando pides una web para un negocio. Las dependencias de los scripts las instala la propia skill la primera vez.
 
 ### Opción C — Manual
 ```bash
-git clone https://github.com/dfadify-web/lizard-bits.git
-cp -R lizard-bits/skills/oneshot ~/.claude/skills/
+git clone https://github.com/dfadify-web/One-Shoot.git
+cp -R One-Shoot/skills/oneshot ~/.claude/skills/
 npm install --prefix ~/.claude/skills/oneshot/scripts
 node ~/.claude/skills/oneshot/scripts/bits.mjs sync
 ```

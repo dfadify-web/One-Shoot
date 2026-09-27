@@ -6,8 +6,8 @@
     "name": "dfadify-web",
     "url": "https://github.com/dfadify-web"
   },
-  "homepage": "https://github.com/dfadify-web/lizard-bits",
-  "repository": "https://github.com/dfadify-web/lizard-bits",
+  "homepage": "https://github.com/dfadify-web/One-Shoot",
+  "repository": "https://github.com/dfadify-web/One-Shoot",
   "license": "MIT",
   "keywords": ["landing", "web-design", "one-shot", "react-bits", "emil-kowalski", "nextjs", "tailwind", "motion", "animation", "vercel", "local-business"]
 }

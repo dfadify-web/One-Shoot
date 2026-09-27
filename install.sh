@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Instalación manual de la skill One-Shoot (/oneshot) (macOS / Linux / Git Bash en Windows).
-# Uso:  curl -fsSL https://raw.githubusercontent.com/dfadify-web/lizard-bits/main/install.sh | bash
+# Uso:  curl -fsSL https://raw.githubusercontent.com/dfadify-web/One-Shoot/main/install.sh | bash
 #   o, desde un clon del repo:  ./install.sh
 set -euo pipefail
 
-REPO="https://github.com/dfadify-web/lizard-bits.git"
+REPO="https://github.com/dfadify-web/One-Shoot.git"
 DEST="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}/oneshot"
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || true)"
