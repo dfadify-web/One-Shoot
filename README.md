@@ -15,20 +15,33 @@ Sin inventar datos: horarios, reseñas o precios que no estén en el brief se om
 
 ---
 
-## Ejemplo real
+## Ejemplos reales
 
-**🍔 Mès Que Bo — hamburguesería take-away → [mesquebo-web.vercel.app](https://mesquebo-web.vercel.app/)**
+Dos negocios muy distintos, misma skill: cambian la paleta, la tipografía y las secciones, pero se mantienen el enfoque (rótulo de barrio en vez de plantilla SaaS), las micro-animaciones y el rendimiento en móvil.
 
-Hecha con esta skill a partir de un brief en Markdown, 3 fotos, un vídeo y una paleta de 5 colores. Lighthouse móvil: rendimiento ~90, accesibilidad / buenas prácticas / SEO 100, CLS 0.
+### 🍔 Mès Que Bo — hamburguesería take-away
+**→ [mesquebo-web.vercel.app](https://mesquebo-web.vercel.app/)**
 
-![Hero en escritorio: titular con palabra rotatoria, vídeo en marco inclinado y sello giratorio](docs/desktop-hero.jpg)
+Hecha a partir de un brief en Markdown, 3 fotos, un vídeo y una paleta de 5 colores. Lighthouse móvil: rendimiento ~90, accesibilidad / buenas prácticas / SEO 100, CLS 0.
+
+![Mès Que Bo: hero en escritorio con palabra rotatoria, vídeo en marco inclinado y sello giratorio](docs/mesquebo-desktop-hero.jpg)
 
 | Sobre nosotros | Carta con pestañas y buscador |
 |---|---|
-| ![Sección sobre nosotros con contador y fotos con inclinación 3D](docs/desktop-about.jpg) | ![Carta con pestañas, precios con línea de puntos y buscador](docs/desktop-carta.jpg) |
+| ![Sección sobre nosotros con contador y fotos con inclinación 3D](docs/mesquebo-desktop-about.jpg) | ![Carta con pestañas, precios con línea de puntos y buscador](docs/mesquebo-desktop-carta.jpg) |
 
+Componentes de React Bits: RotatingText, CircularText, ScrollVelocity, CurvedLoop, CountUp, TiltedCard, SpotlightCard, Magnet, ClickSpark, StarBorder.
 
-Componentes de React Bits usados: RotatingText, CircularText, ScrollVelocity, CurvedLoop, CountUp, TiltedCard, SpotlightCard, Magnet, ClickSpark, StarBorder.
+### 📦 Trasteros Aldaia — alquiler de trasteros
+**→ [trasteros-aldaia-web.vercel.app](https://trasteros-aldaia-web.vercel.app/)**
+
+Negocio de servicios, sin fotos de producto: el hero es una ilustración de la nave hecha con CSS, y la web gira en torno a elegir tamaño (vista a escala con una persona de referencia) y una calculadora de "¿qué tamaño necesito?" que recomienda trastero.
+
+![Trasteros Aldaia: hero en escritorio con titular, palabra rotatoria, sello "1 m² sin permanencia" e ilustración de trasteros](docs/trasteros-desktop-hero.jpg)
+
+| Tamaños y precios | Calculadora de espacio |
+|---|---|
+| ![Selector de tamaños con vista a escala, qué cabe y precio desde](docs/trasteros-desktop-tamanos.jpg) | ![Calculadora: cajas, sofás, camas… y recomendación de trastero](docs/trasteros-desktop-calc.jpg) |
 
 ---
 
