@@ -178,3 +178,8 @@ Objetivo: Perf ≥ 88 (varía entre pasadas), A11y/BP/SEO 100, CLS 0, TBT < 50 m
 | BorderGlow (y cualquier glow con `inset` negativo) ensancha el viewport en móvil | `overflow-x-clip` en la sección que lo contiene |
 | `aria-label` en un `<span>` sin rol → A11y < 100 | Texto en `sr-only` y la animación con `aria-hidden` |
 | LCP con render delay alto por animar opacity en h1/subtítulo del hero | `.enter-tilt` (solo transform) también en los textos grandes del hero |
+| `// eslint-disable-next-line @typescript-eslint/...` en un componente rompe `next build` (regla no definida) | `bits.mjs add` ya los quita |
+| AccordionGallery oculto con `hidden sm:block` sigue descargando todas sus imágenes en móvil | Montarlo solo si `matchMedia('(min-width:640px)')` |
+| `<link rel=preload>` a `/media/x.webp` cuando la imagen va por `next/image` (sirve `/_next/image`) → descarga doble | Preload solo para `<img>`/póster sin `next/image`; con `next/image`, `priority` |
+| Titulares del hero dentro de `overflow-hidden` para la entrada tipo máscara → LCP tardío | Sin recorte: `.enter-tilt` directo sobre el texto |
+

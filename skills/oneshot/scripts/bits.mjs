@@ -226,6 +226,8 @@ function add() {
         let s = readFileSync(p, "utf8");
         if (/\.tsx?$/.test(f) && !/^['"]use client['"]/.test(s.trimStart())) s = `'use client';\n${s}`;
         if (react18 && /\.tsx?$/.test(f)) s = toReact18(s);
+        // Comentarios eslint-disable de reglas que el proyecto no tiene (p. ej. @typescript-eslint/*) rompen `next build`
+        if (/\.tsx?$/.test(f)) s = s.replace(/^[ \t]*\/\/ eslint-disable-next-line @typescript-eslint\/.*\r?\n/gm, "");
         // Código de terceros: sus tipos internos se escriben para otros entornos (React 19, DOM vs Node timers…)
         // y rompen `next build`. Se desactiva el chequeo DENTRO del fichero; sus props exportadas siguen tipadas.
         // (@ts-nocheck debe ir antes de cualquier sentencia, incluido 'use client'; los comentarios sí pueden precederlo)

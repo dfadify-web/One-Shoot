@@ -1,5 +1,7 @@
 # 🎯 One-Shoot
 
+**→ [oneshot-skill.vercel.app](https://oneshot-skill.vercel.app)** · ⭐ Si te sirve, [dale una estrella en GitHub](https://github.com/dfadify-web/One-Shoot/stargazers)
+
 **Skill para [Claude Code](https://claude.com/claude-code) que crea, desde el primer prompt, landings increíbles para negocios** (restaurantes, tiendas, clínicas, talleres, servicios…). Se invoca con **`/oneshot`**.
 
 Le pasas un **PRD/brief**, **unos pocos assets** (fotos, logo, quizá un vídeo) y una **paleta de colores**, y Claude:
@@ -48,6 +50,13 @@ Negocio de servicios, sin fotos de producto: el hero es una ilustración de la n
 | Tamaños y precios | Calculadora de espacio |
 |---|---|
 | ![Selector de tamaños con vista a escala, qué cabe y precio desde](docs/trasteros-desktop-tamanos.jpg) | ![Calculadora: cajas, sofás, camas… y recomendación de trastero](docs/trasteros-desktop-calc.jpg) |
+
+### 👁️ Eyes on Claude — landing de producto open source
+**→ [eyes-on-claude.vercel.app](https://eyes-on-claude.vercel.app/)**
+
+Dirección *neón nocturno* (la v2 ya elige dirección por web): un ojo que sigue al cursor como momento firma, captura del producto que se endereza al hacer scroll y contador de estrellas en vivo. Lighthouse móvil 95 · 100 · 100 · 100.
+
+La propia landing de One-Shoot ([oneshot-skill.vercel.app](https://oneshot-skill.vercel.app)) está hecha con la skill, en dirección *editorial*.
 
 ---
 

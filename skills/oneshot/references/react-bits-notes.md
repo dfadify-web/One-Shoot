@@ -66,6 +66,10 @@ Presupuesto por web (para que sea espectacular y a la vez fluida):
 | Counter | hooks antes del return en `Digit` (si no, `react-hooks/rules-of-hooks` rompe `next build`) |
 | LogoLoop | pausa fuera de pantalla (IntersectionObserver en el track) |
 | TextPressure | pausa fuera de pantalla; rango de ejes subido (wdth 70-200, wght 500-900): con los valores de demo el texto lejos del cursor queda ilegible de fino |
+| FlowingMenu | el marquee solo corre con el puntero encima (el original deja N tweens infinitos siempre activos); filas con número + texto + meta y clases configurables (sin tamaños en `vh`); en táctil, fila estática |
+| AccordionGallery | `loading=lazy` en las imágenes; además, montarlo solo en `sm:` (matchMedia) y en móvil usar una tira con `next/image` |
+| MaskedHeading | pausa fuera de pantalla. **Aviso**: con fuentes de `next/font` el recorte se desalinea y las palabras se separan; si se usa, revisar capturas o evitarlo |
+| TextType | con `showCursor` el cursor se desplaza al escribir y suma CLS; usar `showCursor={false}` en textos above-the-fold |
 | CountUp, SpotlightCard, ShinyText, BlurText | — |
 
 ## 4. Evitar (aprendido en producción)
