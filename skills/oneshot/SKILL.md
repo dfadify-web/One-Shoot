@@ -174,3 +174,7 @@ Objetivo: Perf ≥ 88 (varía entre pasadas), A11y/BP/SEO 100, CLS 0, TBT < 50 m
 | `three` sin tipos rompe el build | `bits.mjs add --install` instala `@types/three` |
 | `layout.tsx` por defecto importa `app/fonts` borrado | copiar `template/app/layout.example.tsx` como layout |
 | Errores de hidratación #418/#423/#425 por `Math.random` al renderizar | `next/dynamic({ ssr:false })` para esos componentes |
+| Counter de React Bits rompe `next build` (rules-of-hooks) | Versión parcheada en template |
+| BorderGlow (y cualquier glow con `inset` negativo) ensancha el viewport en móvil | `overflow-x-clip` en la sección que lo contiene |
+| `aria-label` en un `<span>` sin rol → A11y < 100 | Texto en `sr-only` y la animación con `aria-hidden` |
+| LCP con render delay alto por animar opacity en h1/subtítulo del hero | `.enter-tilt` (solo transform) también en los textos grandes del hero |

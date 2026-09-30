@@ -63,6 +63,9 @@ Presupuesto por web (para que sea espectacular y a la vez fluida):
 | Magnet | — (pasar `disabled={!finePointer}`) |
 | ClickSpark | — (envolver SOLO la zona de botones; su canvas mide lo que su padre) |
 | StarBorder | — (keyframes ya en `template/tailwind.config.ts`) |
+| Counter | hooks antes del return en `Digit` (si no, `react-hooks/rules-of-hooks` rompe `next build`) |
+| LogoLoop | pausa fuera de pantalla (IntersectionObserver en el track) |
+| TextPressure | pausa fuera de pantalla; rango de ejes subido (wdth 70-200, wght 500-900): con los valores de demo el texto lejos del cursor queda ilegible de fino |
 | CountUp, SpotlightCard, ShinyText, BlurText | — |
 
 ## 4. Evitar (aprendido en producción)
